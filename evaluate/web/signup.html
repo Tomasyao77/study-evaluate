@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>体育馆管理平台注册</title>
+        <title>教学质量评估平台注册</title>
 
         <!-- CSS -->
         <!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">-->
@@ -40,7 +40,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>体育馆</strong>&nbsp;管理系统</h1>
+                            <h1><strong>教学质量</strong>&nbsp;评估系统</h1>
                             <!--<div class="description">
                             	<p>
 	                            	This is a free responsive login form made with Bootstrap. 
@@ -60,7 +60,7 @@
                         			<i class="fa fa-book"></i>
                         		</div>
                             </div>
-                            <div class="form-bottom" ng-controller="maincontroller">
+                            <div class="form-bottom" ng-controller="mainsignupcontroller">
 			                    <form role="form" onsubmit="return ;" class="login-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">用户名</label>
@@ -77,6 +77,10 @@
                                     <div class="form-group">
                                         <label class="sr-only" for="form-tel">电话</label>
                                         <input type="text" name="form-tel" placeholder="电话..." class="form-tel form-control" id="form-tel" ng-model="inputTel">
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" ng-change="roleSelect(selectedItem)" ng-init="selectedItem = roleChooseTemp[0].name"
+                                                ng-model="selectedItem" ng-options="item.name for item in roleChooseTemp"></select>
                                     </div>
 			                        <button type="submit" ng-click="register()" class="btn">注册!</button>
 			                    </form>

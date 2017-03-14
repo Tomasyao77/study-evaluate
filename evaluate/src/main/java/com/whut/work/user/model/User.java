@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_user")
+@Table(name = "user")
 public class User {
 
 	@Id
@@ -25,9 +25,6 @@ public class User {
 	private Boolean isDelete;
 	@Column(name = "role")
 	private String role;
-    /*@JsonIgnore
-	@OneToMany(mappedBy = "user")
-	private Set<Order> orders = new HashSet<Order>();*/
 
 	public Integer getId() {
 		return id;
@@ -93,12 +90,5 @@ public class User {
 		this.role = role;
 	}
 
-	/*public Set<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(Set<Order> orders) {
-		this.orders = orders;
-	}*/
 
 }

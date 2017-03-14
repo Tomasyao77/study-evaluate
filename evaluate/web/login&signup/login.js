@@ -2,6 +2,10 @@ angular.module("mainapp",[])
     .controller("maincontroller",function($scope){
         $scope.inputUsername = "";
         $scope.inputPassword = "";
+        $scope.roleChooseTemp = [
+            {"name":"学生","id":1,"string":"student"},
+            {"name":"教师","id":2,"string":"teacher"},
+            {"name":"领导","id":3,"string":"leader"}];
         //登录
         $scope.login = function(){
             if(checkFirst() != false){
@@ -48,6 +52,10 @@ angular.module("mainapp",[])
                     });
                 }
             });
+        };
+        $scope.roleSelect = function (item) {
+            console.log(item.id);
+            $scope.roleidTemp = item.id;
         };
     })
 

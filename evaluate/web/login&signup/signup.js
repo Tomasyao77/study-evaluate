@@ -4,6 +4,7 @@ angular.module("mainapp",[])
         $scope.inputPassword = "";
         $scope.inputEmail = "";
         $scope.inputTel = "";
+        $scope.roleChooseTemp = [{"name":"学生","id":1},{"name":"教师","id":2},{"name":"领导","id":3}];
         function checkFirst(){
             if($scope.inputUsername!=null && $scope.inputUsername!=""
                 && $scope.inputPassword!=null && $scope.inputPassword!=""
@@ -43,6 +44,10 @@ angular.module("mainapp",[])
             }else{
                 alert("请将信息填写完整...");
             };
+        };
+        $scope.roleSelect = function (item) {
+            console.log(item.id);
+            $scope.roleidTemp = item.id;
         };
     })
 
