@@ -38,7 +38,7 @@ angular.module("mainapp",[])
                     $scope.$apply(function(){
                         if(data.success == true && data.message == "登录成功"){
                             $scope.inputUsername = "";$scope.inputPassword = "";
-                            window.location.href = "../jsp/gym/index.jsp?userName="+data.value.username+
+                            window.location.href = "../jsp/evaluate/index.jsp?userName="+data.value.username+
                                 "&userId="+data.value.id+"&role="+data.value.role;
                         }else if(data.success == false && data.message == "密码错误"){
                             $scope.inputUsername = "";$scope.inputPassword = "";

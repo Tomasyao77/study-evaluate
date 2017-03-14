@@ -1,17 +1,23 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumino - Dashboard</title>
+<title>教学质量评估平台</title>
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/datepicker3.css" rel="stylesheet">
-<link href="css/styles.css" rel="stylesheet">
+<link href="jsp/evaluate/css/bootstrap.min.css" rel="stylesheet">
+<link href="jsp/evaluate/css/datepicker3.css" rel="stylesheet">
+<link href="jsp/evaluate/css/styles.css" rel="stylesheet">
 
 <!--[if lt IE 9]>
-<script src="js/html5shiv.js"></script>
-<script src="js/respond.min.js"></script>
+<script src="jsp/evaluate/js/html5shiv.js"></script>
+<script src="jsp/evaluate/js/respond.min.js"></script>
 <![endif]-->
 	<style type="text/css">
 		a{
@@ -98,22 +104,30 @@
 		<div class="attribution">Welcome <a title="教师教学质量">教师教学质量</a> - <a title="评估平台">评估平台</a></div>
 	</div><!--/.sidebar-->
 		
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
-		<div class="row">
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="padding: 10px;"><%--右侧区域	--%>
+
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h3 class="panel-title">面板标题</h3>
+			</div>
+			<div class="panel-body">
+				这是一个基本的面板
+			</div>
+		</div>
+
+		<%--<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
 				<li class="active">Dashboard</li>
 			</ol>
-		</div><!--/.row-->
+		</div><!--/.row-->--%>
 		
-		<div class="row">
+		<%--<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Dashboard</h1>
 			</div>
 		</div><!--/.row-->
         
-        <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
-		
 		<div class="row">
 			<div class="col-xs-12 col-md-6 col-lg-3">
 				<div class="panel panel-blue panel-widget ">
@@ -181,7 +195,7 @@
 				</div>
 			</div>
 		</div><!--/.row-->
-		
+
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
@@ -367,16 +381,19 @@
 				</div>
 								
 			</div><!--/.col-->
-		</div><!--/.row-->
+		</div><!--/.row-->--%>
+
 	</div>	<!--/.main-->
 
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/chart.min.js"></script>
-	<script src="js/chart-data.js"></script>
-	<script src="js/easypiechart.js"></script>
-	<script src="js/easypiechart-data.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="jsp/evaluate/js/jquery-1.11.1.min.js"></script>
+	<script src="jsp/evaluate/js/bootstrap.min.js"></script>
+	<script src="jsp/evaluate/js/chart.min.js"></script>
+	<script src="jsp/evaluate/js/chart-data.js"></script>
+	<script src="jsp/evaluate/js/easypiechart.js"></script>
+	<script src="jsp/evaluate/js/easypiechart-data.js"></script>
+	<script src="jsp/evaluate/js/bootstrap-datepicker.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script src="jsp/common/js/md5.js"></script>
 	<script>
 		/*$('#calendar').datepicker({
 		});*/
