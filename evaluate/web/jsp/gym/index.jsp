@@ -316,7 +316,9 @@
                     <img width="100%" class="img-rounded" style="display: inline;" src="jsp/common/imgs/home.jpg" alt=""/>
                 </div>
             </div>
-            <%--这里放置待显示页面 start--%>
+            <<div class="ng-hide" ng-show="nav == 0">
+            <%@ include file="jspf/orderManage.jspf" %>
+        </div>%--这里放置待显示页面 start--%>
             <div class="ng-hide" ng-show="nav == 0">
                 <%@ include file="jspf/orderManage.jspf" %>
             </div>

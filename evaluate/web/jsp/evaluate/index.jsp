@@ -14,6 +14,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="jsp/evaluate/css/bootstrap.min.css" rel="stylesheet">
 <link href="jsp/evaluate/css/datepicker3.css" rel="stylesheet">
 <link href="jsp/evaluate/css/styles.css" rel="stylesheet">
+	<script src="jsp/evaluate/js/jquery-1.11.1.min.js"></script>
+	<script src="jsp/evaluate/js/bootstrap.min.js"></script>
+	<script src="jsp/evaluate/js/chart.min.js"></script>
+	<script src="jsp/evaluate/js/chart-data.js"></script>
+	<script src="jsp/evaluate/js/easypiechart.js"></script>
+	<script src="jsp/evaluate/js/easypiechart-data.js"></script>
+	<script src="jsp/evaluate/js/bootstrap-datepicker.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	<script src="jsp/common/js/md5.js"></script>
 
 <!--[if lt IE 9]>
 <script src="jsp/evaluate/js/html5shiv.js"></script>
@@ -106,13 +115,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" style="padding: 10px;"><%--右侧区域	--%>
 
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<h3 class="panel-title">面板标题</h3>
-			</div>
-			<div class="panel-body">
-				这是一个基本的面板
-			</div>
+		<%--<div class="ng-hide" ng-show="nav == 0">--%>
+			<div>
+			<%@ include file="jspf/myCourse.jspf" %>
 		</div>
 
 		<%--<div class="row">
@@ -385,15 +390,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	</div>	<!--/.main-->
 
-	<script src="jsp/evaluate/js/jquery-1.11.1.min.js"></script>
-	<script src="jsp/evaluate/js/bootstrap.min.js"></script>
-	<script src="jsp/evaluate/js/chart.min.js"></script>
-	<script src="jsp/evaluate/js/chart-data.js"></script>
-	<script src="jsp/evaluate/js/easypiechart.js"></script>
-	<script src="jsp/evaluate/js/easypiechart-data.js"></script>
-	<script src="jsp/evaluate/js/bootstrap-datepicker.js"></script>
-	<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
-	<script src="jsp/common/js/md5.js"></script>
 	<script>
 		/*$('#calendar').datepicker({
 		});*/
@@ -411,7 +407,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(window).on('resize', function () {
 		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
 		})
-	</script>	
+	</script>
+
 </body>
 
 </html>
