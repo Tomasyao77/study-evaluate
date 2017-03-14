@@ -25,6 +25,7 @@ public class User {
 	private Boolean isDelete;
 	@Column(name = "role")
 	private String role;
+	private String account;
 
 	public Integer getId() {
 		return id;
@@ -90,5 +91,11 @@ public class User {
 		this.role = role;
 	}
 
+	public String getAccount() {
+		return account;
+	}
 
+	public void setAccount(String account) {
+		this.account = account;
+	}
 }

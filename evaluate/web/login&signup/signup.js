@@ -1,15 +1,21 @@
 angular.module("mainapp",[])
     .controller("mainsignupcontroller",function($scope){
+        $scope.inputAccount = "";
         $scope.inputUsername = "";
         $scope.inputPassword = "";
         $scope.inputEmail = "";
         $scope.inputTel = "";
-        $scope.roleChooseTemp = [{"name":"学生","id":1},{"name":"教师","id":2},{"name":"领导","id":3}];
+        $scope.roleidTemp = "";
+        $scope.roleChooseTemp = [
+            {"name":"学生","id":1,"string":"student"},
+            {"name":"教师","id":2,"string":"teacher"},
+            {"name":"领导","id":3,"string":"leader"}];
         function checkFirst(){
             if($scope.inputUsername!=null && $scope.inputUsername!=""
                 && $scope.inputPassword!=null && $scope.inputPassword!=""
                 && $scope.inputEmail!=null && $scope.inputEmail!=""
-                && $scope.inputTel!=null && $scope.inputTel!=""){
+                && $scope.inputTel!=null && $scope.inputTel!=""
+                && $scope.roleidTemp!=null && $scope.roleidTemp!=""){
                 return true;
             }else{
                 return false;
@@ -22,7 +28,14 @@ angular.module("mainapp",[])
                 $.ajax({
                     type:"POST",
                     url:"/login/register",
-                    data:{"username":$scope.inputUsername,"password":$scope.inputPassword,"tel":$scope.inputTel,"email":$scope.inputEmail},
+                    data:{
+                        "account":$scope.inputAccount,
+                        "username":$scope.inputUsername,
+                        "password":$scope.inputPassword,
+                        "tel":$scope.inputTel,
+                        "email":$scope.inputEmail,
+                        "role":$scope.roleidTemp.string
+                    },
                     contentType:"application/x-www-form-urlencoded",
                     dataType:"json",
                     success:function(data){
@@ -33,10 +46,10 @@ angular.module("mainapp",[])
                                 $scope.inputEmail = "";$scope.inputTel = "";
                                 alert("注册成功!");
                                 window.location.href = "login.html";
-                            }else if(data.success == false && data.message == "该用户名已存在..."){
+                            }else if(data.success == false && data.message == "该账号已存在..."){
                                 $scope.inputUsername = "";$scope.inputPassword = "";
                                 $scope.inputEmail = "";$scope.inputTel = "";
-                                alert("该用户名已被注册...");
+                                alert("该账号已被注册...");
                             }
                         });
                     }
@@ -46,8 +59,7 @@ angular.module("mainapp",[])
             };
         };
         $scope.roleSelect = function (item) {
-            console.log(item.id);
-            $scope.roleidTemp = item.id;
+            $scope.roleidTemp = item;
         };
     })
 

@@ -2,6 +2,7 @@ angular.module("mainapp",[])
     .controller("maincontroller",function($scope){
         $scope.inputUsername = "";
         $scope.inputPassword = "";
+        $scope.roleidTemp = "";
         $scope.roleChooseTemp = [
             {"name":"学生","id":1,"string":"student"},
             {"name":"教师","id":2,"string":"teacher"},
@@ -16,7 +17,8 @@ angular.module("mainapp",[])
         };
         function checkFirst(){
             if($scope.inputUsername!=null && $scope.inputUsername!=""
-                && $scope.inputPassword!=null && $scope.inputPassword!=""){
+                && $scope.inputPassword!=null && $scope.inputPassword!=""
+                && $scope.roleidTemp!=null && $scope.roleidTemp!=""){
                 return true;
             }else{
                 return false;
@@ -28,7 +30,7 @@ angular.module("mainapp",[])
             $.ajax({
                 type:"POST",
                 url:"/login/login",
-                data:{"username":this.username,"password":this.password},
+                data:{"username":this.username,"password":this.password,"role":$scope.roleidTemp.string},
                 contentType:"application/x-www-form-urlencoded",
                 dataType:"json",
                 success:function(data){
@@ -36,7 +38,6 @@ angular.module("mainapp",[])
                     $scope.$apply(function(){
                         if(data.success == true && data.message == "登录成功"){
                             $scope.inputUsername = "";$scope.inputPassword = "";
-                            //alert("登录成功1!");
                             window.location.href = "../jsp/gym/index.jsp?userName="+data.value.username+
                                 "&userId="+data.value.id+"&role="+data.value.role;
                         }else if(data.success == false && data.message == "密码错误"){
@@ -54,8 +55,7 @@ angular.module("mainapp",[])
             });
         };
         $scope.roleSelect = function (item) {
-            console.log(item.id);
-            $scope.roleidTemp = item.id;
+            $scope.roleidTemp = item;
         };
     })
 

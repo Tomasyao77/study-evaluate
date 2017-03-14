@@ -5,10 +5,10 @@ import java.util.Map;
 public interface ILoginService {
 
 	//登录
-	public Map<String,Object> login(String username, String password) throws Exception;
+	public Map<String,Object> login(String username, String password,String role) throws Exception;
 	
 	//注册
-	public Map<String,Object> register(String username, String password, String tel, String email) throws Exception;
+	public Map<String,Object> register(String account,String username, String password, String tel, String email,String role) throws Exception;
 
 	//编辑登录用户的信息
 	public Map<String,Object> editLoger(Integer id, String username, String tel, String email) throws Exception;

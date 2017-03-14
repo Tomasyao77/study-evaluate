@@ -28,11 +28,11 @@ public class LoginCtrl {
 
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> login(HttpServletRequest request,String username,String password){
+	public Map<String,Object> login(HttpServletRequest request,String username,String password,String role){
 		Map<String,Object> returnMap = new HashMap<String,Object>();
 		
 		try {
-			Map<String,Object> map = loginService.login(username, password);
+			Map<String,Object> map = loginService.login(username, password,role);
 			//获取user实体
 			Object object = map.get("value");
 			if(object != null){
@@ -53,11 +53,12 @@ public class LoginCtrl {
 
     @RequestMapping(value="/register",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> register(HttpServletRequest request, String username, String password, String tel, String email){
+	public Map<String,Object> register(HttpServletRequest request,String account, String username,
+									   String password, String tel, String email,String role){
 		Map<String,Object> returnMap = new HashMap<String,Object>();
 		
 		try {
-			Map<String,Object> map = loginService.register(username, password,tel,email);
+			Map<String,Object> map = loginService.register(account,username, password,tel,email,role);
 			//获取user实体
 			Object object = map.get("value");
 			if(object != null){

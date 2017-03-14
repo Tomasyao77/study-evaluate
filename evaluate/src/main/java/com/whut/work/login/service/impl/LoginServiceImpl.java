@@ -18,10 +18,10 @@ public class LoginServiceImpl implements ILoginService  {
 	@Autowired
 	private IUserDao userDao;
 	
-	public Map<String, Object> login(String username, String password) throws Exception {
+	public Map<String, Object> login(String username, String password,String role) throws Exception {
 		Map<String,Object> returnMap = new HashMap<String,Object>();
 		
-		String hql = "from User u where u.username='"+username+"'";
+		String hql = "from User u where u.account='"+username+"' and u.role='"+role+"' ";
 		User user = new User();
 		try {
 			user = userDao.findOne(hql);
@@ -47,23 +47,24 @@ public class LoginServiceImpl implements ILoginService  {
 		return returnMap;
 	}
 
-	public Map<String, Object> register(String username, String password,String tel,String email) throws Exception {
+	public Map<String, Object> register(String account,String username, String password,String tel,String email,String role) throws Exception {
 		Map<String,Object> returnMap = new HashMap<String,Object>();
 		
-		String hql = "from User u where u.username='"+username+"'";
+		String hql = "from User u where u.account='"+account+"'";
 		User user = new User();
 		if(userDao.findOne(hql) != null){
-			returnMap.put("message", "该用户名已存在...");
+			returnMap.put("message", "该账号已存在...");
 			returnMap.put("success", false);
 			return returnMap;
 		}else{
+			user.setAccount(account);
 			user.setUsername(username);
 			user.setPassword(password);
             user.setTel(tel);
             user.setEmail(email);
 			user.setCreateTime(new Date());
 			user.setIsDelete(false);
-			user.setRole("vip");
+			user.setRole(role);
 			
 			userDao.save(user);
 			returnMap.put("value", user);
@@ -132,7 +133,7 @@ public class LoginServiceImpl implements ILoginService  {
 	public Map<String, Object> getLoger(Integer id) throws Exception {
         Map<String,Object> returnMap = new HashMap<String,Object>();
 
-        String hql = " select new com.whut.work.user.vo.UserVo(u.id,u.username,u.tel,u.email,u.createTime) from User u where u.id='"+id+"' ";
+        String hql = " from User u where u.id='"+id+"' ";
         List<User> user = userDao.findList(hql);
         if(user != null){
             returnMap.put("value", user);
