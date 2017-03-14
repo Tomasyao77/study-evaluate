@@ -1,19 +1,19 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">f
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>教学质量评估平台</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!-- 引入 Bootstrap -->
     <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="images/login.js"></script>
-    <link href="css/login2.css" rel="stylesheet" type="text/css"/>
+    <link href="login&signup/css/login2.css" rel="stylesheet" type="text/css"/>
     <script src="http://cdn.static.runoob.com/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script type="text/javascript" src="login&signup/images/login.js"></script>
 </head>
-<body>
-<div style="align-content: center;">
+<body ng-app="mainapp">
+<div style="align-content: center;width: 200px;margin: 0 auto;">
     <h1>教学质量评估平台</h1>
 </div>
 
@@ -31,7 +31,7 @@
     <div class="web_qr_login" id="web_qr_login" style="display: block; height: 235px;">
 
         <!--登录-->
-        <div class="web_login" id="web_login">
+        <div class="web_login" id="web_login"  ng-controller="mainlogincontroller">
 
 
             <div class="login-box">
@@ -73,12 +73,13 @@
     <!--注册-->
     <div class="qlogin" id="qlogin" style="display: none; ">
 
-        <div class="web_login">
+        <div class="web_login" ng-controller="mainsignupcontroller">
             <form name="form2" id="regUser" accept-charset="utf-8" action="" method="post">
                 <input type="hidden" name="to" value="reg"/>
                 <input type="hidden" name="did" value="0"/>
                 <ul class="reg_form" id="reg-ul">
                     <!--<div id="userCue" class="cue">快速注册请注意格式</div>-->
+                    <br>
                     <li>
 
                         <label for="user" class="input-tips2">用户名：</label>
@@ -139,7 +140,7 @@
 
                     <li>
                         <div class="inputArea">
-                            <input type="button" id="reg" style="margin-top:10px;margin-left:85px;" class="button_blue"
+                            <input type="button" style="margin-top:10px;margin-left:85px;" class="button_blue"
                                    value="注册"/> <!--<a href="#" class="zcxy" target="_blank">注册协议</a>-->
                         </div>
 
@@ -155,5 +156,6 @@
     </div>
     <!--注册end-->
 </div>
+
 </body>
 </html>
